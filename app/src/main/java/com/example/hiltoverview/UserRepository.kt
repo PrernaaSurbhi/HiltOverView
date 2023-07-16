@@ -3,13 +3,13 @@ package com.example.hiltoverview
 import android.util.Log
 import javax.inject.Inject
 
-class UserRepository @Inject constructor(){
+class UserRepository @Inject constructor(val loggerService: LoggerService){
 
     fun saveUser(email:String,password:String){
-        Log.d(Tag,"User created in DB")
+        loggerService.logMessage("user saved in DB")
     }
 
     companion object{
-        val Tag = "UserRepository"
+        val Tagg = "UserRepository"
     }
 }
