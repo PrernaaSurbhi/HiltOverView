@@ -3,13 +3,18 @@ package com.example.hiltoverview
 import android.util.Log
 import javax.inject.Inject
 
-class UserRepository @Inject constructor(val loggerService: LoggerService){
+interface UserRepository{
+    fun saveUser(email:String,password:String)
+}
 
-    fun saveUser(email:String,password:String){
-        loggerService.logMessage("user saved in DB")
+class SqlRepository @Inject constructor():UserRepository{
+    override fun saveUser(email:String, password:String){
+        Log.d("SqlRepository","user created in sql")
     }
+}
 
-    companion object{
-        val Tagg = "UserRepository"
+class FireBaseRepository @Inject constructor():UserRepository{
+    override fun saveUser(email:String, password:String){
+        Log.d("FireBaseRepository","user created in firebase")
     }
 }
