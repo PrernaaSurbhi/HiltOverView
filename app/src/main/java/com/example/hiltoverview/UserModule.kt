@@ -5,12 +5,22 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.FragmentComponent
+import javax.inject.Named
 
 @InstallIn(FragmentComponent::class)
 @Module
-abstract class UserModule {
+class UserModule {
 
-    @Binds
-    abstract fun providesUserRepository(sqlRepository: SqlRepository):UserRepository
+    @Provides
+    @Named("sql")
+     fun providesSqlRepository(sqlRepository: SqlRepository):UserRepository{
+         return sqlRepository
+     }
+
+    @Provides
+    @Named("FireBaseRepository")
+    fun providesFireBaseRepository( ):UserRepository{
+        return FireBaseRepository()
+    }
 
 }

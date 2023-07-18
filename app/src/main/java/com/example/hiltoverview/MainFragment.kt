@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
+import javax.inject.Named
+
 //for feild injection in fragment - we have to use the same step as Activity feild injection.
 //But we have to always add @AndroidEntryPoint on respective activity.
 
@@ -14,6 +16,7 @@ import javax.inject.Inject
 class MainFragment: Fragment() {
 
     @Inject
+    @Named("FireBaseRepository")
     lateinit var userRepository: UserRepository
 
     override fun onCreateView(
