@@ -16,7 +16,7 @@ import javax.inject.Named
 class MainFragment: Fragment() {
 
     @Inject
-    @Named("FireBaseRepository")
+    @FireBaseQualifier
     lateinit var userRepository: UserRepository
 
     override fun onCreateView(

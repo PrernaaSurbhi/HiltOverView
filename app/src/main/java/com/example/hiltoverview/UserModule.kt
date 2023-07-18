@@ -18,7 +18,7 @@ class UserModule {
      }
 
     @Provides
-    @Named("FireBaseRepository")
+    @FireBaseQualifier
     fun providesFireBaseRepository( ):UserRepository{
         return FireBaseRepository()
     }
